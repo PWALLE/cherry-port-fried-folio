@@ -1,0 +1,23 @@
+class A() {
+  var x : Int = 6;
+  def incx(delta : Int) : Int = {x = x + delta; 0};
+  def getval() : Int = x;
+}
+
+class B() extends A() {
+  var y : Int = 7;
+  def incy(delta : Int) : Int = {y = y + delta; 0};
+  override def getval() : Int = x + y;
+}
+
+class Main() extends IO() {
+
+  var b : B = new B();
+  var i : Int = b.getval();
+
+  {
+  b.incx(1);
+  out("hello")
+  };
+
+}
