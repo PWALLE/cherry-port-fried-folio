@@ -1,6 +1,6 @@
 <h1>README</h1>
 
-<p>@author: Paul Elliott
+<p>@author: Paul Elliott <br>
 @date: 10/31/14</p>
 
 <h3>Notes</h3>
