@@ -1,0 +1,10 @@
+### Global
+# My markdown readme
+README.text
+# Java class files
+*.class
+
+### cool_compiler
+# Really don't want the world of llvm executables and builds in here..
+build/
+llvm/
