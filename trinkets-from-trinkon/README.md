@@ -1,6 +1,6 @@
 <h1>README</h1>
 
-<p>@Paul Elliott
+<p>@Paul Elliott <br>
 @5 April 2013</p>
 
 <h3>About</h3>
@@ -20,9 +20,12 @@ so when I was working on this application I used an IDE and dealt with the
 horizontal scroll irritably. I'm saying this to ward off a warranted (but mistaken)
 conclusion that I don't know a fig about Ruby.</p>
 
-<p>Also, a note from the owner of this proprietary code:
-    "The code samples are proprietary code and belong to Trinkon, LLC. <br>
-    I am sharing them with the permission of the owner of Trinkon 
-    solely for the purpose of assisting my job search. <br>
-    The owner asks that you delete the code fragments
-    when you are done using them to evaluate me."</p>
+<p>Also, a note from the owner of this proprietary code:</p>
+
+<blockquote>
+  <p>"The code samples are proprietary code and belong to Trinkon, LLC. <br>
+     I am sharing them with the permission of the owner of Trinkon 
+     solely for the purpose of assisting my job search. <br>
+     The owner asks that you delete the code fragments
+     when you are done using them to evaluate me."</p>
+</blockquote>
