@@ -1,0 +1,21 @@
+<% if flash[:notice]%>
+	<p id="notice"><%= notice %></p>
+<% end %>
+
+<p>
+  <strong>Variety:</strong>
+  <%= @variety.variety %>
+</p>
+
+<p>
+  <strong>Goes in pit?:</strong>
+  <%= @variety.is_pit ? "Yes" : "No" %>
+</p>
+
+<p>
+  <strong>Factor:</strong>
+  <%= (@variety.factor == -1) ? "--" : @variety.factor %>
+</p>
+
+<%= link_to 'Edit', edit_variety_path(@variety) %> |
+<%= link_to 'Back', varieties_path %>

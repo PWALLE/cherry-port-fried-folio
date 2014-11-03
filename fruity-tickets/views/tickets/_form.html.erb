@@ -1,0 +1,101 @@
+<%= form_for(@ticket) do |f| %>
+	<% if @ticket.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+			<ul>
+				<% @ticket.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+  
+  	<br>
+	
+	<div class="field">
+		<%= f.label :grower_name, "Grower Name" %>
+		<%= f.text_field :grower_name, :size => "40" %>
+	</div>
+	<div class="field" style="float:left; margin-right:20px">
+		<%= f.label :grade %>
+		<%= f.text_field :grade, :size=>"4" %>
+	</div>
+	<div class="field" style="float:left">
+		<%= f.label :grader_initials, "Graded By" %>
+		<%= f.text_field :grader_initials, :size =>"10" %>
+	</div>
+	<br style="clear:both"/>
+	<div class="field">
+		<%= f.label :grade_comment, "Grade Comment" %>
+		<%= f.text_area :grade_comment, :size =>"10" %>
+	</div>
+	<br/>
+	<div class="field" style="float:left; margin-right:25px">
+		<%= f.label :fruit_variety, "Fruit Variety" %><br>
+		<%= f.select :fruit_variety, @varieties %>
+	</div>
+	<div class="field" style="float: left; margin-right:25px">
+		<%= f.label :pit_number, "Pit Num. " %><br>
+		<%= f.text_field :pit_number, :size=>"10" %>
+	</div>
+		<div class="field" style="float:left">
+		<%= f.label :factor, "Override factor (default: do nothing)" %><br>
+		<%= f.text_field :factor, :size =>"10" %>
+	</div>
+	<br style="clear:both"/>
+    <br>
+	
+	<table style="margin-left:25px; border-collapse:collapse">
+	<%= f.fields_for :tank_entries do |builder|%>
+		<% if @count%4 == 1 %>
+			<tr>
+				<td class="even" style="padding: 5px">
+					<%=builder.label :tank_number, "Tank No."%><%=builder.text_field :tank_number, :size =>"10"%>
+					<span style="padding-left: 10px;">
+					<%=builder.label :measured_fruit_depth, "Meas. Fruit Depth"%><%=builder.text_field :measured_fruit_depth, :size =>"10"%>
+				</td>
+		<% elsif @count%4 == 2 %>
+				<td class="even" style="padding: 5px 5px 5px 50px;">
+					<%=builder.label :tank_number, "Tank No."%><%=builder.text_field :tank_number, :size =>"10"%>
+					<span style="padding-left: 10px;">
+					<%=builder.label :measured_fruit_depth, "Meas. Fruit Depth"%><%=builder.text_field :measured_fruit_depth, :size =>"10"%>
+				</td>
+			</tr>
+		<% elsif @count%4 == 3 %>
+			<tr>
+				<td class="odd" style="padding: 5px">
+					<%=builder.label :tank_number, "Tank No."%><%=builder.text_field :tank_number, :size =>"10"%>
+					<span style="padding-left: 10px;">
+					<%=builder.label :measured_fruit_depth, "Meas. Fruit Depth"%><%=builder.text_field :measured_fruit_depth, :size =>"10"%>
+				</td>
+		<% elsif @count%4 == 0 %>
+				<td class="odd" style="padding: 5px 5px 5px 50px;">
+					<%=builder.label :tank_number, "Tank No."%><%=builder.text_field :tank_number, :size =>"10"%>
+					<span style="padding-left: 10px;">
+					<%=builder.label :measured_fruit_depth, "Meas. Fruit Depth"%><%=builder.text_field :measured_fruit_depth, :size =>"10"%>
+				</td>
+			</tr>
+		<%end%>
+		<% @count += 1 %>
+	<% end %>
+	</table>
+	<br style="clear:both"/>
+	<br/>
+	<div class="field" style="float:left; margin-right:25px">
+		<%= f.label :total_tanks, "Number of Tanks" %>
+		<%= f.text_field :total_tanks, :size=>"10" %>
+	</div>
+	<div class="field" style="float:left; margin-right:25px">
+		<%= f.label :weigher_initials, "Weighed By" %>
+		<%= f.text_field :weigher_initials, :size => "10" %>
+	</div>
+	<div class="field" style="float:left">
+		<%= f.label :date, "Date Entered" %>
+		<%= f.datetime_select :date %>
+	</div>
+	<br style="clear:both"/>
+	<div class="actions">
+		<%= f.submit("Create Ticket", data: {confirm: "Did you double check your numbers?"}) %>
+	</div>
+	<% end %>

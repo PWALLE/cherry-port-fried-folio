@@ -1,0 +1,39 @@
+<% if flash[:notice]%>
+	<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Listing varieties</h1>
+
+<%= link_to 'Back to Tickets', tickets_path %>
+
+<br>
+<br>
+<br>
+
+<%unless @varieties.empty?%>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Variety</th>
+	      <th>Pit?</th>
+	      <th>Factor</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @varieties.each do |variety| %>
+	      <tr>
+	        <td><%= variety.variety %></td>
+	        <td><%= variety.is_pit ? "Yes" : "No" %></td>
+	        <td><%= (variety.factor == -1) ? "--" : variety.factor %></td>
+	        <td><%= link_to 'Show', variety %></td>
+	        <td><%= link_to 'Edit', edit_variety_path(variety) %></td>
+	        <td><%= link_to 'Destroy', variety, data: {confirm: 'Are you sure?'}, method: :delete %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+<% end %>
+
+<%= link_to 'New Variety', new_variety_path %>

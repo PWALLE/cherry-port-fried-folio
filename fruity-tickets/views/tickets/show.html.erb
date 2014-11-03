@@ -1,0 +1,108 @@
+<p style="float:left; margin-left:25px">
+Ticket Id: <b><%= @ticket.id%></b>
+</p>
+<p style="float:right; margin-right:50px; margin-bottom:0px">
+  Date: 
+  <b>
+			<%= @ticket.date.strftime("%m/%d/%y") %>
+  </b> <br/>
+  Time: 
+  <b>
+	  		<%= @ticket.date.strftime("%I:%M %p") %>
+  </b>
+</p>
+<br style="clear:both"/>
+<h1 style="text-align:center; margin-top:0px"><% Leelanaufruit::Application.config.NAME %></h1>
+<h2 style="text-align:center"><% Leelanaufruit::Application.config.ADDRESS %></h2>
+<h1 style="text-align:center; margin-bottom:0px"> CHERRY RECEIVING TICKET </h1>
+
+<br style="clear:both"/>
+
+<p style="margin-left:200px; margin-bottom:0px; margin-top:0px">
+  Grower Name: 
+  <b><%= @ticket.grower_name %></b>
+</p>
+<p style="float:left; margin-left:200px; margin-right:25px; margin-bottom:0px; margin-top:2px">
+  Grade: 
+  <b><%= @ticket.grade %>%</b>
+</p>
+
+<p style="float:left; margin-bottom:0px; margin-top:2px">
+  Graded By: 
+  <b><%= @ticket.grader_initials %></b>
+</p>
+<br style="clear:both"/>
+<p style="margin-left:200px; margin-bottom:0px; margin-top:2px">
+  Grade Comments: 
+  <b>
+  <% if @ticket.grade_comment %>
+	<%= @ticket.grade_comment %>
+  <% else %>
+  <% end %>
+  </b>
+</p>
+<p style="float:left; margin-left:200px; margin-right:25px; margin-bottom:0px; margin-top:2px">
+  Total Tanks: 
+  <b><%= @ticket.total_tanks %></b>
+</p>
+
+<p style="float:left; margin-bottom:0px; margin-right:25px; margin-top:2px">
+  Fruit Variety: 
+  <b><%= @ticket.fruit_variety %></b>
+</p>
+
+<p style="margin-bottom:0px; margin-top:2px">
+  Pit Number: 
+	<b><%= @ticket.get_pit %></b>
+</p>
+<br style="clear:both"/>
+
+<table style="margin-left:25px; border:solid black 1px; width:600px; border-collapse:collapse">
+	<tr style="border-bottom: 1px solid black">
+		<th style="border-bottom: 1px solid black">Tank No.</th>
+		<th style="border-bottom: 1px solid black">Measured Fruit Depth</th>
+		<th style="border-bottom: 1px solid black">Tank No.</th>
+		<th style="border-bottom: 1px solid black">Measured Fruit Depth</th>
+	</tr>
+<% for t in @ticket.tank_entries %>
+	<%if @count%2 == 1%>
+		<tr>
+	<%end%>
+			<td style="padding-right:10px; text-align:center; border:1px solid black"><%if t.tank_number.nil?%>--<%else%><%=t.tank_number%><%end%></td>
+			<td style="padding-right:50px; text-align:center; border:1px solid black"><b><%=t.measured_fruit_depth%></b></td>
+	<%if @count%2 == 0%>
+		</tr>
+	<%end%>
+	<%@count+=1%>
+<%end%>
+</table>
+<br style="clear:both"/>
+
+<p style="float:left; margin-left:100px; margin-right:10px; margin-bottom:0px">
+  Total Cubic Feet:
+  <b><%= @ticket.total_cubic_feet %></b>
+</p>
+<p style="float:left; margin-right:10px; margin-bottom:0px"><b>X</b></p>
+<p style="float:left; margin-right:10px; margin-bottom:0px">
+  Factor: 
+  <b>
+  <%= @ticket.factor == 1 ? "none" : @ticket.factor %>
+  </b>
+</p>
+<p style="float:left; margin-right:10px; margin-bottom:0px"><b>=</b></p>
+<p style="float:left; margin-bottom:0px; margin-right:25px">
+  Weight: 
+  <b><%= @ticket.weight.to_i %></b>
+</p>
+
+<p style="float:left; margin-bottom:0px">
+  Weighed By: 
+  <b><%= @ticket.weigher_initials %></b>
+</p>
+<br style="clear:both"/>
+
+
+
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>

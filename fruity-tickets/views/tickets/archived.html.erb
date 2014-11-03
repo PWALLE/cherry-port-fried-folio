@@ -1,0 +1,52 @@
+<% if flash[:notice]%>
+	<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Displaying All Archived Tickets by Date
+</h1>
+
+<%= link_to 'Back to Tickets', tickets_path %>
+<br><br>
+
+*You can update the archive date. All active tickets will be archived before:
+<%= form_tag(action: 'archive_by_date', controller: 'tickets') do %>
+	<%=date_select :archive_date, :date%>
+	<%= submit_tag "Set Archive Date"%>
+<% end %>
+<br/>
+
+<%unless @tickets.empty?%>
+	<table width="100%">
+		<tr style="background:gray; color:white">
+			<th style="padding:10px">Date</th>
+			<th>Time</th>
+			<th>Grower Name</th>
+			<th>Total Tanks</th>
+			<th>Fruit Variety</th>
+			<th>Pit #</th>
+			<th>Weight</th>
+			<th>Grade</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+
+		<% @tickets.each do |ticket| %>
+		<tr class="<%=cycle('even','odd')%>">
+			<td style="padding:10px"><%= ticket.date.strftime("%m/%d/%y") %></td>
+			<td><%= ticket.date.strftime("%I:%M %p") %></td>
+			<td><%= ticket.grower_name %></td>
+			<td><%= ticket.total_tanks %></td>
+			<td><%= ticket.fruit_variety %></td>
+			<td><%= ticket.pit_number.blank? ? "--" : ticket.pit_number %></td>
+			<td><%= ticket.weight.to_i %></td>
+			<td><%= ticket.grade %>%</td>
+			<td><%= link_to 'Unarchive', unarchive_ticket_path(ticket), method: :put %></td>
+			<td><%= link_to 'View', ticket %></td>
+			<td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+			<td><%= link_to 'Delete', ticket, data: {confirm: 'Are you sure?'}, method: :delete %></td>
+		</tr>
+		<% end %>
+	</table>
+<%end%>
