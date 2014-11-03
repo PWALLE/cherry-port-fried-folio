@@ -18,7 +18,7 @@ The actual application can be found <a href="http://apps.facebook.com/Trinkon/">
 <p>I forced some code wrapping for readability. RoR tends to dislike code wrapping,
 so when I was working on this application I used an IDE and dealt with the
 horizontal scroll irritably. I'm saying this to ward off a warranted (but mistaken)
-conclusion that I don't know a fig about Ruby.</p>
+conclusion that I don't know a fig about Ruby. ~PWALLE</p>
 
 <p>Also, a note regarding the proprietary nature of this code: </p>
 
