@@ -20,7 +20,7 @@ so when I was working on this application I used an IDE and dealt with the
 horizontal scroll irritably. I'm saying this to ward off a warranted (but mistaken)
 conclusion that I don't know a fig about Ruby.</p>
 
-<p>Also, a note from the owner of this proprietary code:</p>
+<p>Also, a note regarding the proprietary nature of this code: </p>
 
 <blockquote>
   <p>"The code samples are proprietary code and belong to Trinkon, LLC. <br>

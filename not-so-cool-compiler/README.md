@@ -4,7 +4,7 @@
   which I developed in tandem with a fellow grad student
   for my graduate-level Compilers course. The compiler
   is coded in Java, and leverages the Beaver parser generator
-  and LLVM compiler infrastructure.</p>
+  and LLVM compiler infrastructure. ~PWALLE</p>
 </blockquote>
 
 <h1>README</h1>

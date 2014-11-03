@@ -13,4 +13,4 @@ a complete compiler, from scanner to parser to machine code generation.  </p>
 
 <p>I completed this on a PC lab computer using Visual Studio. 
 It does not compile on Unix due to a library issue, 
-but it should illustrate my coding abilities from my undergraduate years.</p>
+but it should illustrate my coding abilities from my undergraduate years. ~PWALLE</p>
