@@ -1,0 +1,44 @@
+\section{Physical Application Design}
+My thought experiments site has a few main applications that leverage the underlying
+database.
+The first is the ability to create a new thought experiment:
+one specifies a title, category, text and text category,
+and optionally media attachments in the form of relative paths or URLs.
+Inserting a new thought experiment affects many tables:
+\begin{itemize}
+    \item ThoughtExperiment;
+    \item ThoughtCategory (used to populate the category dropdown);
+    \item TE\_Cat (creates a record associating the new thought to a category);
+    \item TextSection and TE\_TextSec (store the text associated with the thought);
+    \item TextCategory (used to populate the category dropdown);
+    \item TS\_Cat (creates a record associating the new text to a category); and
+    \item (Optionally) Multimedia and TE\_Mult (for Multimedia attachments).
+\end{itemize}
+I will note that insertion is a fairly complex task.
+There are quite a few intricate relationships that must be maintained here
+in order to properly insert the entire thought experiment.
+
+Another set of applications involve browsing the entire set of 
+thought experiments, text sections, or multimedia.  These applications
+affect their respective tables. My site allows a user to easily switch
+between viewing these groupings, and relies on the database to populate 
+associated views.
+
+Yet another set of applications enable users to comment on
+thought experiments, text sections, or multimedia.
+Creating comments primarily involves the Comments table,
+but also involves the respective tables containing the entities
+being commented on.  These tables allow the user to view
+a given entity before and during the commenting process.
+
+Lastly, a final set of applications allow users to
+add moods to the major three entities.
+Moods are populated in a dropdown from the Moods table,
+and successful insertions involve creating entries in the appropriate
+association tables (TE\_Mood, TS\_Mood, and Mult\_Mood).
+
+In addition to these major applications,
+there are also some minor applications interleaved throughout the site.  
+For example, the home page counts the number
+of thought experiments to give a quick summary of the site's usage.
+Such minor applications improve the user experience of the site.

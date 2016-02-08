@@ -1,0 +1,49 @@
+html, body {
+    height: 100%;
+}
+body {
+    background-position:center;
+    background-image:url("yosemite.jpg");
+}
+#filter {
+    float:right;
+}
+.clear {
+    clear:both;
+}
+#options ul li{
+    display: inline;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 0 -100px 0;
+}
+nav a {
+    font-size:20px;
+    margin: 10px 10px;
+}
+#footer {
+    height: 100px;
+    padding: 10px 10px;
+    margin:0;
+}
+.push {
+    height: 100px;
+}
+#title {
+    margin:0 auto;
+    text-align:center;
+    font-size:40px;
+}
+#summary {
+    width: 40%;
+    margin:0 auto;
+    padding: 20px;
+    text-align: center;
+}
+.content {
+    background:rgba(255,255,255,.5);
+}
+
